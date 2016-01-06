@@ -18,7 +18,7 @@
     componentWillMount: function()
     {
         this.loadDataFromServer();
-        // window.setInterval(this.loadDataFromServer, 5000); //Automatic Refreshing
+        window.setInterval(this.loadDataFromServer, 15000); //Automatic Refreshing 15s
     },
     enableUpdateForm: function(editedContact)
     {
@@ -121,7 +121,7 @@
         return (<div>
                     <ContactList data={this.state.data} enableUpdateForm={this.enableUpdateForm} deleteRowPrompt={this.deleteRowPrompt}
                      cancelDelete={this.cancelDelete} deleteRow={this.handleDelete} disableUpdateForm={this.disableUpdateForm} handleEdit={this.handleEdit}/>
-                    {this.state.showCreateButton ? <input type="button" value="Create New" onClick={this.enableCreateForm}/> : null}
+                    {this.state.showCreateButton ? <input href="#" className="btn btn-default" type="button" value="Create New" onClick={this.enableCreateForm}/> : null}
                     {this.state.showCreateForm ? <CreateContactForm submitNew={this.submitNew} cancelNew={this.disableCreateForm}/> : null}
                 </div>);
     }
@@ -176,10 +176,10 @@ var ContactList = React.createClass({
                     <table>
                         <thead>
                             <tr>
-                                <th>
+                                <th className="cover-heading">
                                     {this.state.showUpdateForm?  "Delete Row": "Name"}
                                 </th>
-                                <th>
+                                <th className="cover-header">
                                     {this.state.showUpdateForm? null: "Address"}
                                 </th>
                              </tr>
@@ -208,10 +208,10 @@ var Contact = React.createClass({
     var fullName = this.props.firstName.trim()+ ", " + this.props.midName.trim() + " " + this.props.lastName.trim();
     return (
         <tr>
-                <td><h4>{fullName}</h4></td>
-                <td>{this.props.address}</td>
-                <td><button onClick={this.enableUpdateForm} value ="Edit">Edit</button></td>
-                <td><button onClick={this.deleteRow}>Delete</button></td>
+                <td className="lead"><h4>{fullName}</h4></td>
+                <td className="lead">{this.props.address}</td>
+                <td><button className="btn btn-default" onClick={this.enableUpdateForm} value ="Edit">Edit</button></td>
+                <td><button className="btn btn-default" onClick={this.deleteRow}>Delete</button></td>
         </tr>
             );
     }

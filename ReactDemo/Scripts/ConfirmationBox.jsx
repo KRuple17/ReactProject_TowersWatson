@@ -13,7 +13,7 @@
                 <div>
                  <label>Are you sure that you want to delete?</label>
                   <input type="button" onClick={this.confirmDelete} value="Yes"/> 
-                  <input type="button" onClick={this.cancelDelete} value="No"/>
+                  <input type="button" onClick={this.cancelDelete} value="No"/> 
                  </div>
                 );
     }

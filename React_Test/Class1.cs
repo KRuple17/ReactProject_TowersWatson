@@ -11,11 +11,6 @@ namespace React_Test
     public class TestClass1
     {
 
-        public TestClass1()
-        {
-
-        }
-
         [Test]
         public void Test1()
         {

@@ -1,19 +1,69 @@
-﻿var CreateContactForm = React.createClass({
+﻿var middleNameRegex = /^[A-Z]?$/;
+var nameRegex =/^[A-Z]{1}[a-z]$/;
+var addressRegex = /^[0-9]+[a-zA-Z0-9 ]+$/
+
+var CreateContactForm = React.createClass({
     getInitialState:function()
     {
-        return({mInitialValid: true});
+        return({mInitialValid: true, firstNameValid:true, lastNameValid:true, addressValid:true});
     },
-    validate: function(event)
+    validateInitial: function(event)
     {
         var text = event.target.value;
-        var regex = /^[A-Z]?$/;
-        if(!text.match(regex))
+        console.log(text)
+        if(!text.match(middleNameRegex))
         {
             this.setState({mInitialValid: false})
-            alert("Single capital letters only.");
+            alert('Please enter 1 Initial');
+        }
+        else{
+            this.setState({mInitialValid: true})
+            
         }
         return 0;
     },
+   /* validateFirstName:function(event)
+    {
+        var text = event.target.value;
+        console.log(text);
+        if(!text.match(nameRegex))
+        {
+            alert('First names must contain at least 1 capital letter.');
+            this.setState({firstNameValid: false});
+        }
+        else
+        {
+            this.setState({firstNameValid:true});
+        }
+    },
+    validateLastName:function(event)
+    {
+        var text = event.target.value;
+
+        if(!text.match(nameRegex))
+        {
+            alert('Last names must contain at least 1 capital letter.');
+            this.setState({lastNameValid: false});
+        }
+        else
+        {
+            this.setState({lastNameValid: true});
+        }
+    },
+    validateAddress:function(event)
+    {
+        var text = event.target.value;
+
+        if(!text.match(addressRegex))
+        {
+            alert('An address must begin with at least 1 digit [0-9]');
+            this.setState({addressValid:false});
+        }
+        else
+        {
+            this.setState({addressValid:false});
+        }
+    },*/
     sumbitNew: function()
     {
         console.log('Click from CreateForm!')
@@ -33,12 +83,12 @@
         return (
             <div>
                 <form ref="form" name="createContactForm">
-                    <input ref="fName" type="text" name="firstNameBox" placeholder="FirstName"/>
-                    <input ref="lName" type="text" name="lastNameBox" placeholder="LastName"/>
-                    <input ref="mName" type="text" onChange={this.validate} pattern="[A-Z]{1}" name="midNameBox" placeholder="Middle Initial(1)"/>
+                    <input ref="fName" type="text" onChange={this.validateFirstName} name="firstNameBox" placeholder="FirstName"required/>
+                    <input ref="lName" type="text" onChange={this.validateLastName} name="lastNameBox" placeholder="LastName"required/>
+                    <input ref="mName" type="text" onChange={this.validateInitial} name="midNameBox" placeholder="Middle Initial(1)"required/>
                     <input ref="address" type="text" name="addressBox"placeholder="Address"/>
-                    <input type="button" name="submitButton" value="Create Contact" onClick={this.sumbitNew}/>
-                    <input type="button" name="cancelButton" value="Cancel Create" onClick={this.cancelNew}/>
+                    <input className="btn btn-default" type="button" name="submitButton" value="Create Contact" onClick={this.sumbitNew}/>
+                    <input className="btn btn-default" type="button" name="cancelButton" value="Cancel Create" onClick={this.cancelNew}/>
                 </form>
             </div>
             );

@@ -15,7 +15,7 @@ namespace ReactDemo.Controllers
         public ActionResult Index()
         {
             List<Contact> allContacts = (List<Contact>)contactProvider.getAllContacts();
-            return View(model:allContacts);
+            return View("BootstrapIndex",model:allContacts);
         }
 
         [HttpGet]

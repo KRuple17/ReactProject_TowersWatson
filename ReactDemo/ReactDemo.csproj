@@ -271,6 +271,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Scripts\IndexStyle.css" />
     <Content Include="Scripts\UpdateContactForm.jsx" />
     <Content Include="Scripts\CreateContactForm.jsx" />
     <Content Include="Scripts\ConfirmationBox.jsx" />
@@ -326,6 +327,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Scripts\Tutorial.jsx" />
+    <Content Include="Views\Home\BootstrapIndex.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

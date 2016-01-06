@@ -43,8 +43,10 @@
                     <input ref="lName" type="text" name="lastNameBox" />
                     <input ref="mName" type="text" name="midNameBox" />
                     <input ref="address" type="text" name="addressBox"/>
+               <div>     
                     <input type="button" name="submitButton" value="Save Changes" onClick={this.sumbitChages}/>
                     <input type="button" name="cancelButton" value="Cancel Changes" onClick={this.cancelChanges}/>
+                </div>
                 </form>
             </div>
             );
