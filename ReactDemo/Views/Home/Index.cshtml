@@ -1,0 +1,20 @@
+﻿@model IEnumerable<ReactDemo.Models.Contact>
+
+@{
+    Layout = null;
+}
+<html>
+<head>
+    <title>Hello React</title>
+</head>
+<body>
+    <div id="content"></div>
+    <script src="https://fb.me/react-0.14.0.js"></script>
+    <script src="https://fb.me/react-dom-0.14.0.js"></script>
+    <script src="@Url.Content("~/Scripts/UpdateContactForm.jsx")"></script>
+    <script src="@Url.Content("~/Scripts/CreateContactForm.jsx")"></script>
+    <script src="@Url.Content("~/Scripts/ConfirmationBox.jsx")"></script>
+    <script src="@Url.Content("~/Scripts/Tutorial.jsx")"></script>
+    @Html.ValidationSummary()
+</body>
+</html>
