@@ -7,6 +7,7 @@ namespace UnitTest1
     [TestFixture]
     public class UnitTest1
     {
+        private ContactProvider contactDbProvider = null;
         [Test]
         public void TestMethod1()
         {
@@ -16,14 +17,28 @@ namespace UnitTest1
         [SetUp]
         public void setup()
         {
-
+            contactDbProvider = new ContactProvider();
         }
 
-        [TestCase]
-        public void test2()
+        [Test]
+        public void TestGetAllContact()
         {
-            ContactProvider c = new ContactProvider();
-            Assert.NotNull(c);
+           var resultList= contactDbProvider.getAllContacts();
+            Assert.NotNull(resultList);
+        }
+
+        [Test]
+        public void TestContactRead()
+        {
+            var fetchedContact = contactDbProvider.readContact(3);
+            Assert.NotNull(fetchedContact);
+        }
+
+        [Test]
+        public void BreakReadContact()
+        {
+            var fetchedContact = contactDbProvider.readContact(0);
+            Assert.Null(fetchedContact);
         }
     }
 }
